@@ -10,10 +10,6 @@ jobs:
     steps:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
-      - name: Setup Node.js (Встановлення Node.js)
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
       - name: Install Cypress (Встановлення залежностей Cypress)
         run: npm install cypress
       - name: Cypress run (Запуск тестів Cypress)
