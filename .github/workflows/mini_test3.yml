@@ -2,6 +2,8 @@ name: мій третій міні тест сайпреса та гіт хаб�
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -9,13 +11,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout (клонування коду репозиторію)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Setup Node.js (Встановлення Node.js)
         uses: actions/setup-node@v2
         with:
-          node-version: 14
-      - name: Install Cypress (Встановлення залежностей Cypress)
-        run: npm install cypress
+          node-version: 16
+      - name: Install dependencies (Встановлення залежностей)
+        run: npm ci
       - name: Cypress run (Запуск тестів Cypress)
         run: |
           npx cypress run --headless --browser chrome
