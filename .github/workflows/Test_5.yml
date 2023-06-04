@@ -19,6 +19,7 @@ jobs:
           sudo chown -R $USER:$USER $HOME/.cache/Cypress
           npx cypress install
           npm ci
+          sudo chmod +x /home/runner/.cache/Cypress/*/Cypress/Cypress
 
   cypress-run:
     runs-on: ubuntu-22.04
