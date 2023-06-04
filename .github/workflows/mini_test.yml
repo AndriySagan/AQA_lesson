@@ -10,12 +10,10 @@ jobs:
     steps:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
-      - name: Cypress run (Запуск тестів Cypress вар1)
+      - name: Cypress run (Запуск тестів Cypress)
         uses: cypress-io/github-action@v5
-      - name: Cypress run (Запуск тестів Cypress вар2)
-        run: |
-          npx cypress run --headless --browser chrome
-          echo "Exit code: $?" >> exit_code.txt
+      - name: Set Chrome as the browser (Встановити Chrome як браузер)
+        run: echo "BROWSER=chrome" >> $GITHUB_ENV
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
@@ -25,4 +23,3 @@ jobs:
         with:
           name: Screenshots
           path: screenshots/
-        # uses: cypress-io/github-action@v5

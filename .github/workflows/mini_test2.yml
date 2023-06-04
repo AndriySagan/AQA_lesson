@@ -1,26 +1,28 @@
-name: мій третій міні тест сайпреса та гіт хаба
+# name: мій третій міні тест сайпреса та гіт хаба
 
-on:
-  push:
-  workflow_dispatch:
+# on:
+#   push:
+#   workflow_dispatch:
 
-jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout (клонування коду репозиторію)
-        uses: actions/checkout@v3
-      - name: Cypress run (Запуск тестів Cypress)
-        run: |
-          npx cypress run --headless --browser chrome
-          echo "Exit code: $?" >> exit_code.txt
-      - name: Capture screenshot (Знімок екрана)
-        run: |
-          mkdir screenshots
-          mv cypress/screenshots/*.png screenshots/
-      - name: Upload screenshot (Завантаження знімка екрана)
-        uses: actions/upload-artifact@v2
-        with:
-          name: Screenshots
-          path: screenshots/
-        # uses: cypress-io/github-action@v5
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout (клонування коду репозиторію)
+#         uses: actions/checkout@v3
+#       - name: Install Cypress (Встановлення залежностей Cypress)
+#         run: npm install cypress
+#       - name: Cypress run (Запуск тестів Cypress)
+#         run: |
+#           npx cypress run --headless --browser chrome
+#           echo "Exit code: $?" >> exit_code.txt
+#       - name: Capture screenshot (Знімок екрана)
+#         run: |
+#           mkdir screenshots
+#           mv cypress/screenshots/*.png screenshots/
+#       - name: Upload screenshot (Завантаження знімка екрана)
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: Screenshots
+#           path: screenshots/
+#         # uses: cypress-io/github-action@v5
