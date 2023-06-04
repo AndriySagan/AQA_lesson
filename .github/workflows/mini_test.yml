@@ -11,7 +11,9 @@ jobs:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
       - name: Cypress run (Запуск тестів Cypress)
-        run: npx cypress run --headless --browser chrome
+        run: |
+          npx cypress run --headless --browser chrome
+          echo "Exit code: $?"
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
