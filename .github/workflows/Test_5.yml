@@ -14,11 +14,7 @@ jobs:
 
       - name: Cypress install
         run: |
-          if [ ! -d "$HOME/.cache/Cypress" ]; then
-            mkdir -p $HOME/.cache/Cypress
-          fi
-          sudo chown -R $USER:$USER $HOME/.cache/Cypress
-          sudo chmod -R 777 $HOME/.cache/Cypress
+          sudo npm install -g cypress
           npx cypress install
           npm ci
 
