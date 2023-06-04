@@ -1,4 +1,4 @@
-name: мій другий міні тест сайпреса та гіт хаба
+name: мій третій міні тест сайпреса та гіт хаба
 
 on:
   push:
@@ -10,10 +10,12 @@ jobs:
     steps:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
+      - name: Install Cypress (Встановлення залежностей Cypress)
+        run: npm install cypress
       - name: Cypress run (Запуск тестів Cypress)
-        uses: cypress-io/github-action@v5
-      - name: Set Chrome as the browser (Встановити Chrome як браузер)
-        run: echo "BROWSER=chrome" >> $GITHUB_ENV
+        run: |
+          npx cypress run --headless --browser chrome
+          echo "Exit code: $?" >> exit_code.txt
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
