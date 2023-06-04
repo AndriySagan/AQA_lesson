@@ -19,6 +19,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     needs: install
+    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,17 +27,21 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: npm test
+          build: npm run build
+          start: npm start
           browser: chrome
+
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
           mv cypress/screenshots/*.png screenshots/
+
       - name: Upload screenshot (Завантаження знімка екрана)
         uses: actions/upload-artifact@v2
         with:
           name: Screenshots
           path: screenshots/
+
       - name: Upload exit code (Завантаження вихідного коду)
         uses: actions/upload-artifact@v2
         with:
