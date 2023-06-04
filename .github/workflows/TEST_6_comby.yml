@@ -1,0 +1,39 @@
+name: Мій комбінований тест сайпреса та гіт хаба
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout (клонування коду репозиторію)
+        uses: actions/checkout@v2
+      - name: Setup Node.js (Встановлення Node.js)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies (Встановлення залежностей)
+        run: npm ci
+      - name: Cypress install (Встановлення Cypress)
+        run: npx cypress install --cache-path $HOME/.cache/Cypress
+      - name: Cypress run (Запуск тестів Cypress)
+        run: |
+          npx cypress run --headless --browser chrome
+          echo "Exit code: $?" >> exit_code.txt
+      - name: Capture screenshot (Знімок екрана)
+        run: |
+          mkdir screenshots
+          mv cypress/screenshots/*.png screenshots/
+      - name: Upload screenshot (Завантаження знімка екрана)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Screenshots
+          path: screenshots/
+      - name: Upload exit code (Завантаження вихідного коду)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Exit Code
+          path: exit_code.txt
