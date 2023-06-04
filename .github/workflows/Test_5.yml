@@ -28,7 +28,7 @@ jobs:
         with:
           start: npm test
           browser: chrome
-          - name: Capture screenshot (Знімок екрана)
+      - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
           mv cypress/screenshots/*.png screenshots/
