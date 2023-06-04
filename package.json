@@ -171,7 +171,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified(Помилка: не вказано жодного тесту)\" && exit 1",
     "start": "node server.js",
-    "build": "your-build-command"
+    "build": "npm run build"
   },
   "keywords": [],
   "author": "",
