@@ -15,6 +15,7 @@ jobs:
         with:
           build: npm run build
           start: npm test
+          browser: chrome
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
