@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies (Встановлення залежностей)
         run: npm ci
       - name: Cypress install (Встановлення Cypress)
-        run: npx cypress install --cache-path $HOME/.cache/Cypress
+        run: npm install cypress@8.5.0
       - name: Cypress run (Запуск тестів Cypress)
         run: |
           npx cypress run --headless --browser chrome
