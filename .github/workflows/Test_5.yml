@@ -14,8 +14,7 @@ jobs:
 
       - name: Cypress install
         run: |
-          sudo npm install -g cypress
-          npx cypress install
+          npx cypress install --cache-path $HOME/.cache/Cypress
           npm ci
 
   cypress-run:
