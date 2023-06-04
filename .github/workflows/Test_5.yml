@@ -1,6 +1,8 @@
 name: мій 5-й тест сайпреса та гіт хаба
 
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   install:
@@ -13,14 +15,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           runTests: false
-          build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
 
   cypress-run:
     runs-on: ubuntu-22.04
@@ -28,12 +22,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
