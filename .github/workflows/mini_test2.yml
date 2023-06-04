@@ -1,4 +1,4 @@
-name: мій другий міні тест сайпреса та гіт хаба
+name: мій третій міні тест сайпреса та гіт хаба
 
 on:
   push:
@@ -10,9 +10,7 @@ jobs:
     steps:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
-      - name: Cypress run (Запуск тестів Cypress вар1)
-        uses: cypress-io/github-action@v5
-      - name: Cypress run (Запуск тестів Cypress вар2)
+      - name: Cypress run (Запуск тестів Cypress)
         run: |
           npx cypress run --headless --browser chrome
           echo "Exit code: $?" >> exit_code.txt
