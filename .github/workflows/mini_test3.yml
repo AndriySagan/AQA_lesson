@@ -2,8 +2,6 @@ name: мій третій міні тест сайпреса та гіт хаб�
 
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -21,18 +19,3 @@ jobs:
       - name: Cypress run (Запуск тестів Cypress)
         run: |
           npx cypress run --headless --browser chrome
-      #     echo "Exit code: $?" >> exit_code.txt
-      # - name: Capture screenshot (Знімок екрана)
-      #   run: |
-      #     mkdir screenshots
-      #     mv cypress/screenshots/*.png screenshots/
-      # - name: Upload screenshot (Завантаження знімка екрана)
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Screenshots
-      #     path: screenshots/
-      # - name: Upload exit code (Завантаження вихідного коду)
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Exit Code
-      #     path: exit_code.txt
