@@ -13,7 +13,7 @@ jobs:
       - name: Cypress run (Запуск тестів Cypress)
         run: |
           npx cypress run --headless --browser chrome
-          echo "Exit code: $?"
+          echo "Exit code: $?" >> exit_code.txt
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
