@@ -97,7 +97,7 @@ describe("Негативний сценарій запиту ", () => {
     failOnStatusCode: false,
   };
 
-  it("response code should be 405", () => {
+  it("response code should be 406", () => {
     cy.request(request).then((response) => {
       assert.equal(406, response.status);
     });

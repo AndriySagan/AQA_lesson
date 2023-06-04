@@ -10,12 +10,13 @@ jobs:
     steps:
       - name: Checkout (клонування коду репозиторію)
         uses: actions/checkout@v3
-      - name: Install and run Cypress tests (Встановити і запустити Cypress тести)
-        run: |
-          npm ci
-          npx cypress run --headless --browser chrome
-        # uses: cypress-io/github-action@v5
-      # - name: Cypress run (Запуск тестів Cypress)
+      # - name: Install and run Cypress tests (Встановити і запустити Cypress тести)
+      #   run: |
+      #     npm ci
+      #     npx cypress run --headless --browser chrome
+
+      - name: Cypress run (Запуск тестів Cypress)
+        uses: cypress-io/github-action@v5
       - run: echo "💡 .(показує, що репозиторій ${{ github.repository }} був клонований на сервер). The *** repository has been cloned to the runner"
       - run: echo "🖥️ робочий процес готовий для тестування вашого коду на сервері."
       - run: echo "🍏 (Вивести статус завдання ${{ job.status }}) This job's status is ."
