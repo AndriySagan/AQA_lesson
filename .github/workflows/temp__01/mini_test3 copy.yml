@@ -16,6 +16,9 @@ jobs:
         run: |
           npx cypress run --headless --browser chrome
           echo "Exit code: $?" >> exit_code.txt
+        with:
+          build: npm run build
+          start: npm start
       - name: Capture screenshot (Знімок екрана)
         run: |
           mkdir screenshots
